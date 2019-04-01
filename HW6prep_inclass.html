@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="300" height="150" style="border:1px solid #d3d3d3;">
+      Your browser does not support the HTML5 canvas tag.</canvas>
+
+      <script>
+        var canvas = document.querySelector('canvas');
+        var ctx = canvas.getContext("2d");
+        var x = 100
+        var y = 50
+        var color = "red"
+        var radius = 20;
+
+
+        function draw(){
+          ctx.beginPath();
+          ctx.fillStyle = color;
+          ctx.arc(x, y, radius, 0, 2 * Math.PI);
+          ctx.fill();
+        }
+        window.addEventListener('mousemove', function (e) {
+          console.log(e.pageX);
+          console.log(e.pageY);
+          x = e.pageX;
+          y = e.pageY;
+          draw()
+        })
+
+        window.addEventListener('keyup', function (e) {
+          console.log(e.keyCode);
+          color = "blue";
+          draw();
+        })
+
+      </script>
+  </body>
+</html>
